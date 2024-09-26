@@ -12,7 +12,7 @@
 <body>
     <div class="container mt-4">
    
-    <!-- Section: Design Block -->
+
 <section class="background-radial-gradient overflow-hidden">
     <style>
       .background-radial-gradient {
@@ -61,7 +61,7 @@
         <div class="col-lg-6 mb-5 mb-lg-0" style="z-index: 10">
           <h1 class="my-5 display-5 fw-bold ls-tight" style="color: hsl(218, 81%, 95%)">
             Welcome to <br />
-            <span style="color: hsl(218, 81%, 75%)">Desphixs</span>
+            <span style="color: hsl(218, 81%, 75%)">Marquis</span>
           </h1>
           <p class="mb-4 opacity-70" style="color: hsl(218, 81%, 85%)">
             Lorem ipsum dolor, sit amet consectetur adipisicing elit.
@@ -78,40 +78,32 @@
           <div class="card bg-glass">
             <div class="card-body px-4 py-5 px-md-5">
               <form action="/login" method="POST">
-                <!-- 2 column grid layout with text inputs for the first and last names -->
                 <div class="row">
-                  
-                  <% if (messages.error) { %>
-                    <div class="alert alert-danger">
-                      <strong><%= messages.error %> </strong>
-                    </div>
-                  <% } %> 
-
                    
 
                   <h1 class="mb-3 h3">Login</h1>
                   
                 </div>
   
-                <!-- Email input -->
                 <div class="form-outline mb-4">
-                  <input type="email" name="email" id="form3Example3" class="form-control" />
-                  <label class="form-label" for="form3Example3">Email address</label>
+                    <input type="email" name="email" id="form3Example3" class="form-control"/>
+                    <label class="form-label" for="form3Example3">Email address</label>
                 </div>
+                
   
-                <!-- Password input -->
+       
                 <div class="form-outline mb-4">
                   <input type="password" name="password" id="form3Example4" class="form-control" />
                   <label class="form-label" for="form3Example4">Password</label>
                 </div>
   
   
-                <!-- Submit button -->
+          
                 <button type="submit" class="btn btn-primary btn-block mb-4">
                   Sign In
                 </button>
   
-                <!-- Register buttons -->
+            
                 <div class="text-center">
                   <p>Don't have an account yet? <a href="/register">Register</a></p>
                 
