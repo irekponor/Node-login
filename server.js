@@ -7,7 +7,7 @@ const user = [];
 
 app.use(express.urlencoded({ extended: false }));
 
-// routes
+// Routes
 app.get("/", (req, res) => {
   res.render("index.ejs");
 });
@@ -19,6 +19,6 @@ app.get("/login", (req, res) => {
 app.get("/register", (req, res) => {
   res.render("register.ejs");
 });
-// end routes
+// End Routes
 
 app.listen(3000);
