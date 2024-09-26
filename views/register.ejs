@@ -79,14 +79,9 @@
           <div class="card bg-glass">
             <div class="card-body px-4 py-5 px-md-5">
               <form action="/register" method="POST">
-                <!-- 2 column grid layout with text inputs for the first and last names -->
                 <div class="row">
                   
-                  <% if (messages.error) { %>
-                    <div class="alert alert-danger">
-                      <strong><%= messages.error %> </strong>
-                    </div>
-                  <% } %> 
+            
                   <h1 class="mb-3 h3">Register</h1>
                   <div class="col-md-12 mb-4">
                     <div class="form-outline">
