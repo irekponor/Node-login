@@ -21,7 +21,7 @@ app.post("/register", async (req, res) => {
     res.redirect("/login");
   } catch (e) {
     console.log(e);
-    res.redirect("/redirect");
+    res.redirect("/register");
   }
 });
 
