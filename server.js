@@ -3,6 +3,7 @@
 const express = require("express");
 const app = express();
 const bcrypt = require("bcrypt"); // bcrypt import
+const { name } = require("ejs");
 
 const user = [];
 
@@ -11,6 +12,11 @@ app.use(express.urlencoded({ extended: false }));
 app.post("/register", async (req, res) => {
   try {
     const hashedPassword = await bcrypt.hash(req.body.Password);
+    users.push({
+      id: Date.now().toString(),
+      name: req.body.name,
+      name: req.body.email,
+    });
   } catch {}
 });
 
