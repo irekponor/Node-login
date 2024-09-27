@@ -10,6 +10,7 @@ app.use(express.urlencoded({ extended: false }));
 
 app.post("/register", async (req, res) => {
   try {
+    const hashedPassword = await bcrypt.hash();
   } catch {}
 });
 
