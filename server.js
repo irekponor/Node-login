@@ -10,7 +10,7 @@ app.use(express.urlencoded({ extended: false }));
 
 app.post("/register", async (req, res) => {
   try {
-    const hashedPassword = await bcrypt.hash(req.body.password, 10);
+    const hashedPassword = await bcrypt.hash(req.body.password, 10); // 10 is a standard way of creating hashedpwd
     users.push({
       id: Date.now().toString(),
       name: req.body.name,
