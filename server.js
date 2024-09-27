@@ -6,6 +6,8 @@ const bcrypt = require("bcrypt"); // bcrypt import
 
 const user = [];
 
+app.post("register");
+
 app.use(express.urlencoded({ extended: false }));
 
 // Routes
