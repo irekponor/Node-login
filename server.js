@@ -39,6 +39,4 @@ app.get("/register", (req, res) => {
 });
 // End Routes
 
-console.log(users);
-
 app.listen(3000);
