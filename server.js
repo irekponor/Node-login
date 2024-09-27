@@ -18,7 +18,11 @@ app.post("/register", async (req, res) => {
       email: req.body.email,
       password: hashedPassword,
     });
-  } catch {}
+    res.redirect("/login");
+  } catch (e) {
+    console.log(e);
+    res.redirect("/redirect");
+  }
 });
 
 // Routes
