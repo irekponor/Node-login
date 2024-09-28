@@ -8,9 +8,24 @@ const initializePassport = require("./passport");
 const flash = require("express-flash");
 const session = require("express-session");
 
+initializePassport(passport, (email) =>
+  users.find((user) => user.email === email)
+);
+
 const users = [];
 
 app.use(express.urlencoded({ extended: false }));
+app.use(flash());
+app.use(
+  session({
+    secret: process.env.SECRET_KEY, // the secret_key should be what you used in the .env file
+    resave: false, // if nothing is changed dont resave variable
+    saveUninitialized: false,
+  })
+);
+
+app.use(passport.initialize());
+app.use(passport.session());
 
 app.post("/register", async (req, res) => {
   try {
