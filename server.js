@@ -15,6 +15,12 @@ initializePassport(passport, (email) =>
 const users = [];
 
 app.use(express.urlencoded({ extended: false }));
+app.use(flash());
+app.use(
+  session({
+    secret: process.env.SECRET_KEY, /the secret_key should be the same as what you used in ur .env file it can be session_secret also
+  })
+);
 
 app.post("/register", async (req, res) => {
   try {
