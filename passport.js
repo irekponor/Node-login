@@ -21,4 +21,8 @@ function initialize(passport) {
 
   // the usernamefield can be customized to whatever you want
   passport.use(new LocalStrategy({ usernameField: "email" }));
+  passport.serializeUser((user, done) => {});
+  passport.deserializeUser((id, done) => {});
 }
+
+module.exports = initialize;

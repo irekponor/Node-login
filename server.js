@@ -3,6 +3,14 @@
 const express = require("express");
 const app = express();
 const bcrypt = require("bcrypt"); // bcrypt import
+const passport = require("passport");
+const initializePassport = require("./passport");
+const flash = require("express-flash");
+const session = require("express-session");
+
+initializePassport(passport, (email) =>
+  users.find((user) => user.email === email)
+);
 
 const users = [];
 
