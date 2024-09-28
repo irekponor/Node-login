@@ -31,6 +31,12 @@ app.use(
 app.use(passport.initialize());
 app.use(passport.session());
 
+// login post functinality configure
+app.post("/login", passport.authenticate("local", {
+  successRedirect: 
+}));
+
+// register post functionality configure
 app.post("/register", async (req, res) => {
   try {
     const hashedPassword = await bcrypt.hash(req.body.password, 10); // 10 is a standard way of creating hashedpwd
