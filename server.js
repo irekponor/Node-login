@@ -32,9 +32,14 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 // login post functinality configure
-app.post("/login", passport.authenticate("local", {
-  successRedirect: 
-}));
+app.post(
+  "/login",
+  passport.authenticate("local", {
+    successRedirect: "/",
+    failureRedirect: "/login",
+    failureFlash: true,
+  })
+);
 
 // register post functionality configure
 app.post("/register", async (req, res) => {
@@ -46,6 +51,7 @@ app.post("/register", async (req, res) => {
       email: req.body.email,
       password: hashedPassword,
     });
+    console.log(users);
     res.redirect("/login");
   } catch (e) {
     console.log(e);
