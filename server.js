@@ -78,7 +78,7 @@ app.get("/register", checkNotAuthenticated, (req, res) => {
 });
 // End Routes
 
-app.delete("logout", (req, res) => {
+app.delete("/logout", (req, res) => {
   req.logout(req.user, (err) => {
     if (err) return next(err);
     res.redirect("/");
