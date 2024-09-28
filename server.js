@@ -4,13 +4,13 @@ if (process.env.NODE_ENV !== "production") {
 
 // importing installed libraries
 
-import express, { urlencoded } from "express";
+const express = require("express");
 const app = express();
-import { hash } from "bcrypt"; // bcrypt import
-import passport, { initialize, session as _session } from "passport";
-import initializePassport from "./passport";
-import flash from "express-flash";
-import session from "express-session";
+const bcrypt = require("bcrypt"); // bcrypt import
+const passport = require("passport");
+const initializePassport = require("./passport");
+const flash = require("express-flash");
+const session = require("express-session");
 
 initializePassport(passport, (email) =>
   users.find((user) => user.email === email)
@@ -18,7 +18,7 @@ initializePassport(passport, (email) =>
 
 const users = [];
 
-app.use(urlencoded({ extended: false }));
+app.use(express.urlencoded({ extended: false }));
 app.use(flash());
 app.use(
   session({
@@ -28,12 +28,12 @@ app.use(
   })
 );
 
-app.use(initialize());
-app.use(_session());
+app.use(passport.initialize());
+app.use(passport.session());
 
 app.post("/register", async (req, res) => {
   try {
-    const hashedPassword = await hash(req.body.password, 10); // 10 is a standard way of creating hashedpwd
+    const hashedPassword = await bcrypt.hash(req.body.password, 10); // 10 is a standard way of creating hashedpwd
     users.push({
       id: Date.now().toString(),
       name: req.body.name,
