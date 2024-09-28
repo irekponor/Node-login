@@ -77,6 +77,11 @@ app.get("/register", checkNotAuthenticated, (req, res) => {
 });
 // End Routes
 
+app.delete("logout", (req, res) => {
+  req.logOut;
+  res.redirect("/login");
+});
+
 function checkAuthenticated(req, res, next) {
   if (req.isAuthenticated()) {
     return next();
@@ -86,7 +91,7 @@ function checkAuthenticated(req, res, next) {
 
 function checkNotAuthenticated(req, res, next) {
   if (req.isAuthenticated()) {
-    res.redirect("/");
+    return res.redirect("/");
   }
   next();
 }
