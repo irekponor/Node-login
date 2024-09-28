@@ -11,6 +11,7 @@ const passport = require("passport");
 const initializePassport = require("./passport");
 const flash = require("express-flash");
 const session = require("express-session");
+const { name } = require("ejs");
 
 initializePassport(
   passport,
@@ -63,7 +64,7 @@ app.post("/register", async (req, res) => {
 
 // Routes
 app.get("/", (req, res) => {
-  res.render("index.ejs");
+  res.render("index.ejs", { name: req.user.name });
 });
 
 app.get("/login", (req, res) => {
